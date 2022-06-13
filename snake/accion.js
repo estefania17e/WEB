@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded",function(){
 })
 
 function crearTablero(){
-    pop.style.display='none';
+    popup.style.display='none';
     //ERROR EN LINEA 29 
     for(var i=0;i<100;i++){
         let div = document.createElement("div"); 
@@ -34,7 +34,7 @@ function crearTablero(){
     }
 } 
 
-function comenzaJuego(){ 
+function comiezaJuego(){ 
     let cuadrados = document.querySelectorAll(".grid div");
     manzanaAlAzar(cuadrados);
     // manzana al azar
@@ -51,7 +51,7 @@ function moverResultado() {
     let cuadrados = document.querySelectorAll(".grid div");
     if(compruebaPorGolpes(cuadrados)) {
     alert("golpeaste algo");
-    pop.style.display="flex";
+    popup.style.display="flex";
     return clearInterval(interval); 
     } else { 
     mueveSerpiente(cuadrados); 
@@ -59,7 +59,7 @@ function moverResultado() {
 } 
 
 function mueveSerpiente(cuadrados){
-    let cola = serpienteActual.pop(); 
+    let cola = serpienteActual.popup(); 
     cuadrados[cola].classList.remove("serpiente");
     serpienteActual.unshift(serpienteActual[0]+direccion);
     // movimiento termina aquí
@@ -121,5 +121,5 @@ function replay() {
     grid.innerHTML = "";
     crearTablero();
     comiezaJuego();
-    pop.style.display = "none";
+    popup.style.display = "none";
   }
