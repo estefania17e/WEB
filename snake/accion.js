@@ -1,7 +1,7 @@
 let grid = document.querySelector(".grid");
-let pop = document.querySelector(".popup");
+let popup = document.querySelector(".popup");
 let juegaDeNuevo = document.querySelector(".juegaDeNuevo"); 
-let muestraPuntaje = document.querySelector(".muestraPuntaje");
+let mostrarPuntaje = document.querySelector(".muestraPuntaje");
 let izquierda = document.querySelector(".izquierda");
 let fondo = document.querySelector(".fondo");
 let derecha = document.querySelector(".derecha");
@@ -59,7 +59,7 @@ function moverResultado() {
 } 
 
 function mueveSerpiente(cuadrados){
-    let cola = serpienteActual.popup(); 
+    let cola = serpienteActual.pop(); 
     cuadrados[cola].classList.remove("serpiente");
     serpienteActual.unshift(serpienteActual[0]+direccion);
     // movimiento termina aquí
@@ -80,8 +80,8 @@ function compruebaPorGolpes(cuadrados) {
     }
 }   
 function comeManzanas(cuadrados,cola){ 
-    if(cuadrados[serpienteActual[0]].classList.contains("manzanas")){ 
-        cuadrados[serpienteActual[0]].classList.remove("manzanas");
+    if(cuadrados[serpienteActual[0]].classList.contains("manzana")){ 
+        cuadrados[serpienteActual[0]].classList.remove("manzana");
         cuadrados[cola].classList.add("serpiente");
         serpienteActual.push(cola);
         manzanaAlAzar(cuadrados);
@@ -110,12 +110,12 @@ function control(e){
         direccion = +ancho; // la serpiente irá 10 divs hacia abajo desde el div actual
     } 
 } 
-/**
+
 arriba.addEventListener("click",()=>direccion= -ancho );
-fondo.addEventListener("click",(()=>direccion= +ancho ));
-izquierda.addEventListener("click",(()=>direccion= -1 ));
-derecha.addEventListener("click",(()=>direccion= 1 ));
- */
+fondo.addEventListener("click",()=>direccion= +ancho );
+izquierda.addEventListener("click",()=>direccion= -1 );
+derecha.addEventListener("click",()=>direccion= 1 );
+
 
 function replay() {
     grid.innerHTML = "";
